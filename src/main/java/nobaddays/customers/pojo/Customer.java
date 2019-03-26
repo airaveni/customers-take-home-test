@@ -1,6 +1,8 @@
 package nobaddays.customers.pojo;
 
-public class Customer {
+import java.util.Comparator;
+
+public class Customer /*implements Comparator<Customer> */{
 
     private String userId;
     private String name;
@@ -42,5 +44,9 @@ public class Customer {
                 ", name: " + name +
                 ", location: ( " + location + " )";
     }
-
+/*
+    @Override
+    public int compare(Customer o1, Customer o2) {
+        return o1.userId - o2.userId;
+    }*/
 }
