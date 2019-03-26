@@ -3,11 +3,9 @@ package nobaddays.customers;
 import nobaddays.customers.pojo.Customer;
 import nobaddays.customers.utils.CustomerUtils;
 import nobaddays.customers.utils.FileReader;
-import org.json.JSONException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.io.IOException;
-import java.net.URL;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,17 +20,22 @@ public class CustomersApplication {
 
 	public static void main(String[] args){
         SpringApplication.run(CustomersApplication.class, args);
+        // if args[0] is set, use it as the json.txt url
+        final String fileUrl = args.length > 0 ? args[0] : Constants.DEFAULT_JSON_TXT_FILE_INPUT_URL;
+        final double validRange = args.length > 1 ? Double.parseDouble(args[1]) : Constants.DEFAULT_VALID_RANGE_IN_KM;
 
         LOGGER.log(Level.INFO, () -> "Getting List of customers within " +
-                Constants.RANGE_TO_CHECK_IN_KM + "km Range of (" + Constants.OFFICE_GPS_COORDINATE + ")");
+                validRange + "km Range of (" + Constants.OFFICE_GPS_COORDINATE + ")");
 
 	    try {
-            List<Customer> customers = FileReader.getCustomers(Constants.JSON_TXT_FILE_INPUT_URL);
+
+            LOGGER.log(Level.INFO, () -> "Reading Customer data from " + fileUrl);
+            List<Customer> customers = FileReader.getCustomers(fileUrl);
             List<Customer> customersInRange = CustomerUtils.getCustomersWithinDistance(
-                    customers, Constants.OFFICE_GPS_COORDINATE, Constants.RANGE_TO_CHECK_IN_KM);
+                    customers, Constants.OFFICE_GPS_COORDINATE, validRange);
 
             LOGGER.log(Level.INFO, () -> "Total customers read from file " + customers.size() + ", of which " +
-                    customersInRange.size() + " are within a " + Constants.RANGE_TO_CHECK_IN_KM + " Range.");
+                    customersInRange.size() + " are within a " + validRange + "km Range.");
 
             customersInRange.sort(Comparator.comparingInt(Customer::getUserId));
             StringBuilder sb = new StringBuilder();

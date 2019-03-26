@@ -13,7 +13,6 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class FileReader {
@@ -27,8 +26,6 @@ public class FileReader {
         List<JSONObject> customers = new ArrayList<>();
 
         InputStream inputStream = new URL(url).openStream();
-            LOGGER.log(Level.INFO, () -> "Reading Customer data from " + Constants.JSON_TXT_FILE_INPUT_URL);
-
         try (BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream, Charset.forName(Constants.JSON_TXT_FILE_ENCODING)))) {
             String line;
             while ((line = rd.readLine()) != null) {
