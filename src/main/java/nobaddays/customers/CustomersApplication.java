@@ -14,9 +14,10 @@ public class CustomersApplication {
 
 	public static void main(String[] args) throws IOException, JSONException {
 		SpringApplication.run(CustomersApplication.class, args);
-		List<Customer> customers = FileReader.getCustomers(new URL(Consents.DEFAULT_JSON_TXT_INPUT_URL).openStream());
+		List<Customer> customers = FileReader.getCustomers(new URL(Constants.JSON_TXT_FILE_DEFAULT_INPUT_URL).openStream());
 
 		System.out.println("Total " + customers.size());
+		System.out.println(customers);
 
 	}
 
