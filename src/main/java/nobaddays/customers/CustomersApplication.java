@@ -1,9 +1,8 @@
 package nobaddays.customers;
 
 import nobaddays.customers.pojo.Customer;
-import nobaddays.customers.pojo.GPSCoordinate;
+import nobaddays.customers.utils.CustomerUtils;
 import nobaddays.customers.utils.FileReader;
-import nobaddays.customers.utils.GPSCoordinateUtils;
 import org.json.JSONException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,17 +17,13 @@ public class CustomersApplication {
 		SpringApplication.run(CustomersApplication.class, args);
 		List<Customer> customers = FileReader.getCustomers(new URL(Constants.JSON_TXT_FILE_DEFAULT_INPUT_URL).openStream());
 
-		System.out.println("====== Distance From Office =======");
-
-		for(Customer customer: customers){
-
-			double distance = GPSCoordinateUtils.getDistanceInKm(customer.getLocation(),	Constants.officeLocation);
-			System.out.println(distance);
-
-		}
+		List<Customer> customersInRange = CustomerUtils.getCustomersWithinDistance(
+				customers, Constants.OFFICE_GPS_COORDINATE, Constants.RANGE_TO_CHECK_IN_KM);
 
 		System.out.println("Total " + customers.size());
-		System.out.println(customers);
+		System.out.println("Total in range " + customersInRange.size());
+
+		System.out.println(customersInRange);
 
 	}
 
