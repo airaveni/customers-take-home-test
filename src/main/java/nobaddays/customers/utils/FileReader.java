@@ -46,7 +46,7 @@ public class FileReader {
                     Double.parseDouble(jsonObject.get(Constants.JSON_CUSTOMER_LATITUDE_STRING).toString()),
                     Double.parseDouble(jsonObject.get(Constants.JSON_CUSTOMER_LONGITUDE_STRING).toString()));
             Customer customer = new Customer(
-                    jsonObject.get(Constants.JSON_CUSTOMER_USER_ID_STRING).toString(),
+                    Integer.parseInt( jsonObject.get(Constants.JSON_CUSTOMER_USER_ID_STRING).toString()),
                     jsonObject.get(Constants.JSON_CUSTOMER_NAME_STRING).toString(),
                     location
             );

@@ -15,7 +15,7 @@ public class Constants {
     public static final String JSON_CUSTOMER_LATITUDE_STRING = "latitude";
     public static final String JSON_CUSTOMER_LONGITUDE_STRING = "longitude";
 
-    public static final GPSCoordinate OFFICE_GPS_COORDINATE = new GPSCoordinate(53.339428,-6.257664);
-    public static final Double RANGE_TO_CHECK_IN_KM = 100d;
+    static final GPSCoordinate OFFICE_GPS_COORDINATE = new GPSCoordinate(53.339428,-6.257664);
+    static final Double RANGE_TO_CHECK_IN_KM = 100d;
 
 }

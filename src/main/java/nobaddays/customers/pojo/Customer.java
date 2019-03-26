@@ -1,24 +1,22 @@
 package nobaddays.customers.pojo;
 
-import java.util.Comparator;
+public class Customer {
 
-public class Customer /*implements Comparator<Customer> */{
-
-    private String userId;
+    private int userId;
     private String name;
     private GPSCoordinate location;
 
-    public Customer(String userId, String name, GPSCoordinate location) {
+    public Customer(int userId, String name, GPSCoordinate location) {
         this.userId = userId;
         this.name = name;
         this.location = location;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -41,12 +39,7 @@ public class Customer /*implements Comparator<Customer> */{
     @Override
     public String toString(){
         return "user_id: " + userId +
-                ", name: " + name +
-                ", location: ( " + location + " )";
+                ", name: " + name;
     }
-/*
-    @Override
-    public int compare(Customer o1, Customer o2) {
-        return o1.userId - o2.userId;
-    }*/
+
 }

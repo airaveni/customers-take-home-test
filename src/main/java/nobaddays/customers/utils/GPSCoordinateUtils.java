@@ -2,12 +2,12 @@ package nobaddays.customers.utils;
 
 import nobaddays.customers.pojo.GPSCoordinate;
 
-public class GPSCoordinateUtils {
+class GPSCoordinateUtils {
 
     private GPSCoordinateUtils() {
     }
 
-    public static double getDistanceInKm(GPSCoordinate location1, GPSCoordinate location2) {
+    static double getDistanceInKm(GPSCoordinate location1, GPSCoordinate location2) {
 
         final int R = 6371; // Radius of the earth
 

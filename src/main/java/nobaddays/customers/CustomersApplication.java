@@ -8,9 +8,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static java.lang.System.lineSeparator;
 
 @SpringBootApplication
 public class CustomersApplication {
@@ -24,22 +27,20 @@ public class CustomersApplication {
                 Constants.RANGE_TO_CHECK_IN_KM + "km Range of (" + Constants.OFFICE_GPS_COORDINATE + ")");
 
 		List<Customer> customers = FileReader.getCustomers(new URL(Constants.JSON_TXT_FILE_INPUT_URL).openStream());
-
 		List<Customer> customersInRange = CustomerUtils.getCustomersWithinDistance(
 				customers, Constants.OFFICE_GPS_COORDINATE, Constants.RANGE_TO_CHECK_IN_KM);
 
         LOGGER.log(Level.INFO, () -> "Total customers read from file " + customers.size() + ", of which " +
                 customersInRange.size() + " are within a " + Constants.RANGE_TO_CHECK_IN_KM + " Range.");
 
+        customersInRange.sort(Comparator.comparingInt(Customer::getUserId));
+        StringBuilder sb = new StringBuilder();
+        for (Customer customer : customersInRange) {
+            sb.append(customer).append(lineSeparator());
+        }
 
-        //LOGGER.log(Level.INFO, () -> CustomerUtils.printListOfCustomersAsJson(customersInRange));
-
-        LOGGER.log(Level.INFO, () -> "List of customers in range: " + System.lineSeparator() +
-                        customersInRange // TODO Sort by UserID
-                );
+        LOGGER.log(Level.INFO, () -> "List of customers in range: " + lineSeparator() + sb);
 
 	}
-
-
 
 }
