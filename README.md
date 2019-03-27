@@ -36,6 +36,7 @@ mvn -version
 
 ## Step 4) Run the project 
 You can now execute the project by navigating inside the target folder and running this command
+
 `java -jar target/customers-1.1.0.jar`
 
 Your output should look something like this
@@ -43,6 +44,7 @@ Your output should look something like this
 Starting CustomersApplication v1.0.0 on xxxx with PID 11111 (/home/user/Documents/test/customers-master/target/customers-1.0.0.jar started by user in /home/user/Documents/test/customers-master)
 No active profile set, falling back to default profiles: default
 Started CustomersApplication in 0.682 seconds (JVM running for 0.978)
+
 Getting List of customers within 70.0km Range of (latitude: 53.339428, longitude: -6.257664)
 Reading Customer data from https://s3.amazonaws.com/intercom-take-home-test/customers.txt
 Total customers read from file 32, of which 16 are within a 100.0km Range.
@@ -73,11 +75,15 @@ If you do not see the desired output(a list of Customers within 100km of the tar
 
 #### Alternatively you can add arguments to the command to change the range in km to search within and the input URL. 
 
-Examples:
-* This command will use search within 70km instead of the default 100km
+**Examples:**
+
+This command will use search within 70km instead of the default 100km
 
 `java -jar target/customers-1.1.0.jar 70`
 
-* This command will use "www.someURL.com/cust.txt" as the input URL and 70km as the range to search within instead of the defaults
+This command will use "www.someURL.com/cust.txt" as the input URL and 70km as the range to search within instead of the defaults
 
 `java -jar target/customers-1.1.0.jar 70 www.someURL.com/cust.txt `
+
+## Author:
+André Erasmus
