@@ -13,11 +13,8 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class FileReader {
-
-    private static final Logger LOGGER = Logger.getLogger(FileReader.class.getName());
 
     private FileReader() {
     }
@@ -35,7 +32,7 @@ public class FileReader {
         return getCustomersListFromJsonList(customers);
     }
 
-    private static List<Customer> getCustomersListFromJsonList(List<JSONObject> customerJsonObjects){
+    static List<Customer> getCustomersListFromJsonList(List<JSONObject> customerJsonObjects){
         List<Customer> customers = new ArrayList<>();
         for(JSONObject jsonObject: customerJsonObjects){
             GPSCoordinate location = new GPSCoordinate(
