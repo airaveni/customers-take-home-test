@@ -36,7 +36,7 @@ mvn -version
 
 ## Step 4) Run the project 
 You can now execute the project by navigating inside the target folder and running this command
-`java -jar target/customers-1.0.0.jar`
+`java -jar target/customers-1.1.0.jar`
 
 Your output should look something like this
 ```
@@ -76,8 +76,8 @@ If you do not see the desired output(a list of Customers within 100km of the tar
 Examples:
 * This command will use search within 70km instead of the default 100km
 
-`java -jar target/customers-1.0.0.jar 70`
+`java -jar target/customers-1.1.0.jar 70`
 
 * This command will use "www.someURL.com/cust.txt" as the input URL and 70km as the range to search within instead of the defaults
 
-`java -jar target/customers-0.0.1-SNAPSHOT.jar 70 www.someURL.com/cust.txt `
+`java -jar target/customers-1.1.0.jar 70 www.someURL.com/cust.txt `
