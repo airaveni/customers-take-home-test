@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>nobaddays</groupId>
 	<artifactId>customers</artifactId>
-	<version>${customers.version}-SNAPSHOT</version>
+	<version>${customers.version}</version>
 	<name>customers</name>
 	<description>Calculate what customers are in a certain range, from a Json file</description>
 
