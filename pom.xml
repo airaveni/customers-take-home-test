@@ -10,12 +10,13 @@
 	</parent>
 	<groupId>nobaddays</groupId>
 	<artifactId>customers</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${customers.version}-SNAPSHOT</version>
 	<name>customers</name>
 	<description>Calculate what customers are in a certain range, from a Json file</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<customers.version>1.0.0</customers.version>
 	</properties>
 
 	<dependencies>
@@ -38,6 +39,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.name}-${project.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
