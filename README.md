@@ -46,6 +46,7 @@ Started CustomersApplication in 0.682 seconds (JVM running for 0.978)
 Getting List of customers within 70.0km Range of (latitude: 53.339428, longitude: -6.257664)
 Reading Customer data from https://s3.amazonaws.com/intercom-take-home-test/customers.txt
 Total customers read from file 32, of which 16 are within a 100.0km Range.
+
 List of customers in range:
 user_id: 4, name: Ian Kehoe
 user_id: 5, name: Nora Dempsey
@@ -70,11 +71,13 @@ Process finished with exit code 0
 ```
 If you do not see the desired output(a list of Customers within 100km of the target location) more details on what caused the error will be displayed in the output
 
-#### Alternatively you can add arguments to the command to change the URL of the input text file. 
+#### Alternatively you can add arguments to the command to change the range in km to search within and the input URL. 
 
 Examples:
-* This command will use "www.someURL.com/cust.txt" as the input URL instead of the default
-`java -jar target/customers-1.0.0.jar www.someURL.com/cust.txt`
+* This command will use search within 70km instead of the default 100km
 
-* This command will use "www.someURL.com/cust.txt" as the input URL and 70km as the range to serch within instead of the defaults
-`java -jar target/customers-0.0.1-SNAPSHOT.jar www.someURL.com/cust.txt 70`
+`java -jar target/customers-1.0.0.jar 70`
+
+* This command will use "www.someURL.com/cust.txt" as the input URL and 70km as the range to search within instead of the defaults
+
+`java -jar target/customers-0.0.1-SNAPSHOT.jar 70 www.someURL.com/cust.txt `

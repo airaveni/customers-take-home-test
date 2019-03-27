@@ -2,7 +2,6 @@ package nobaddays.customers.utils;
 
 import nobaddays.customers.pojo.Customer;
 import nobaddays.customers.pojo.GPSCoordinate;
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +21,6 @@ public class CustomerUtils {
         }
 
         return customersInRange;
-    }
-
-    public static String printListOfCustomersAsJson(List<Customer> customers){
-        return new JSONArray(customers).toString(4);
     }
 
 }
