@@ -46,6 +46,7 @@ Started CustomersApplication in 0.682 seconds (JVM running for 0.978)
 Getting List of customers within 70.0km Range of (latitude: 53.339428, longitude: -6.257664)
 Reading Customer data from https://s3.amazonaws.com/intercom-take-home-test/customers.txt
 Total customers read from file 32, of which 16 are within a 100.0km Range.
+
 List of customers in range:
 user_id: 4, name: Ian Kehoe
 user_id: 5, name: Nora Dempsey
