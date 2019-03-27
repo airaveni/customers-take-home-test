@@ -2,21 +2,21 @@ package nobaddays.customers.pojo;
 
 public class Customer {
 
-    private String userId;
+    private int userId;
     private String name;
     private GPSCoordinate location;
 
-    public Customer(String userId, String name, GPSCoordinate location) {
+    public Customer(int userId, String name, GPSCoordinate location) {
         this.userId = userId;
         this.name = name;
         this.location = location;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -39,8 +39,7 @@ public class Customer {
     @Override
     public String toString(){
         return "user_id: " + userId +
-                ", name: " + name +
-                ", location: ( " + location + " )";
+                ", name: " + name;
     }
 
 }
