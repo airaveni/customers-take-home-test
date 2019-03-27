@@ -20,8 +20,9 @@ public class CustomersApplication {
 
 	public static void main(String[] args){
         SpringApplication.run(CustomersApplication.class, args);
-        // if args[0] is set, use it as the json.txt url
+        // if args[0] is set, use it as the json.txt url.
         final String fileUrl = args.length > 0 ? args[0] : Constants.DEFAULT_JSON_TXT_FILE_INPUT_URL;
+        // if args[1] is set, use it as the range to search within.
         final double validRange = args.length > 1 ? Double.parseDouble(args[1]) : Constants.DEFAULT_VALID_RANGE_IN_KM;
 
         LOGGER.log(Level.INFO, () -> "Getting List of customers within " +
