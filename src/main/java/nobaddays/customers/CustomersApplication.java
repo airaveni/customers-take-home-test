@@ -6,6 +6,8 @@ import nobaddays.customers.utils.FileReader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
@@ -35,7 +37,8 @@ public class CustomersApplication {
         try {
 
             LOGGER.log(Level.INFO, () -> "Reading Customer data from " + fileUrl);
-            List<Customer> customers = FileReader.getCustomers(fileUrl);
+            InputStream inputStream = new URL(fileUrl).openStream();
+            List<Customer> customers = FileReader.getCustomers(inputStream);
             List<Customer> customersInRange = CustomerUtils.getCustomersWithinDistance(
                     customers, Constants.OFFICE_GPS_COORDINATE, validRange);
 
