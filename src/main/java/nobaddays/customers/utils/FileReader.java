@@ -9,7 +9,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class FileReader {
     public static List<Customer> getCustomers(InputStream inputStream) throws IOException {
         List<JSONObject> customers = new ArrayList<>();
 
-        try (BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream, Charset.forName(Constants.JSON_TXT_FILE_ENCODING)))) {
+        try (BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream, Constants.JSON_TXT_FILE_ENCODING))) {
             String line;
             while ((line = rd.readLine()) != null) {
                 customers.add(new JSONObject(line));

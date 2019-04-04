@@ -2,13 +2,16 @@ package nobaddays.customers;
 
 import nobaddays.customers.pojo.GPSCoordinate;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 public class Constants {
 
     private Constants() {
     }
 
     static final String DEFAULT_JSON_TXT_FILE_INPUT_URL = "https://s3.amazonaws.com/intercom-take-home-test/customers.txt";
-    public static final String JSON_TXT_FILE_ENCODING = "UTF-8";
+    public static final Charset JSON_TXT_FILE_ENCODING = StandardCharsets.UTF_8;
 
     public static final String JSON_CUSTOMER_USER_ID_STRING = "user_id";
     public static final String JSON_CUSTOMER_NAME_STRING = "name";

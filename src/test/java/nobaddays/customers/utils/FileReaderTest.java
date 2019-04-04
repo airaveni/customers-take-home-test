@@ -31,18 +31,14 @@ public class FileReaderTest {
     }
 
     @Test
-    public void getCustomersListFromJsonList() {
+    public void getCustomersListFromJsonList() throws JSONException {
 
         List<JSONObject> customerJsonObjects = new ArrayList<>();
 
-        try {
-            customerJsonObjects.add(new JSONObject("{\"latitude\": \"53.4692815\", \"user_id\": 7, \"name\": \"Frank Kehoe\", \"longitude\": \"-9.436036\"}"));
-            customerJsonObjects.add(new JSONObject("{\"latitude\": \"54.080556\", \"user_id\": 23, \"name\": \"Eoin Gallagher\", \"longitude\": \"-6.361944\"}"));
-            customerJsonObjects.add(new JSONObject("{\"latitude\": \"53.521111\", \"user_id\": 20, \"name\": \"Enid Enright\", \"longitude\": \"-9.831111\"}"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
+        customerJsonObjects.add(new JSONObject("{\"latitude\": \"53.4692815\", \"user_id\": 7, \"name\": \"Frank Kehoe\", \"longitude\": \"-9.436036\"}"));
+        customerJsonObjects.add(new JSONObject("{\"latitude\": \"54.080556\", \"user_id\": 23, \"name\": \"Eoin Gallagher\", \"longitude\": \"-6.361944\"}"));
+        customerJsonObjects.add(new JSONObject("{\"latitude\": \"53.521111\", \"user_id\": 20, \"name\": \"Enid Enright\", \"longitude\": \"-9.831111\"}"));
+        
         List<Customer> customers = FileReader.getCustomersListFromJsonList(customerJsonObjects);
 
         assert (customers.size() == 3);
