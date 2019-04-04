@@ -12,6 +12,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class FileReaderTest {
 
     @Test
@@ -41,11 +43,11 @@ public class FileReaderTest {
         
         List<Customer> customers = FileReader.getCustomersListFromJsonList(customerJsonObjects);
 
-        assert (customers.size() == 3);
-        assert (customers.get(0).getUserId() == 7);
-        assert (customers.get(1).getName().equals("Eoin Gallagher"));
-        assert (Double.compare(53.521111d, customers.get(2).getLocation().getLatitude()) == 0d );
-        assert (Double.compare(-9.831111d, customers.get(2).getLocation().getLongitude()) == 0d );
+        assertEquals(customers.size(),  3);
+        assertEquals(customers.get(0).getUserId(), 7);
+        assertEquals(customers.get(1).getName(),"Eoin Gallagher");
+        assertEquals(Double.compare(53.521111d, customers.get(2).getLocation().getLatitude()),0d );
+        assertEquals(Double.compare(-9.831111d, customers.get(2).getLocation().getLongitude()), 0d );
 
     }
 }
