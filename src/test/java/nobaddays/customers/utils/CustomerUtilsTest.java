@@ -1,11 +1,15 @@
 package nobaddays.customers.utils;
 
+import nobaddays.customers.Constants;
 import nobaddays.customers.pojo.Customer;
 import nobaddays.customers.pojo.GPSCoordinate;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CustomerUtilsTest {
 
@@ -24,9 +28,30 @@ public class CustomerUtilsTest {
 
         List<Customer> customersInRange = CustomerUtils.getCustomersWithinDistance(customersToFilter, filterLocation, kilometerRange);
 
-        assert (customersInRange.size() == 2);
-        assert (customersInRange.get(0).getUserId() == 2);
-        assert (customersInRange.get(1).getUserId() == 4);
+        assertEquals(2, customersInRange.size());
+        assertEquals(2, customersInRange.get(0).getUserId());
+        assertEquals(4, customersInRange.get(1).getUserId());
+
+    }
+
+    @Test
+    public void processCustomerData() {
+
+        List<Customer> customers = CustomerUtils.processCustomerData(Constants.DEFAULT_JSON_TXT_FILE_INPUT_URL,
+                Constants.DEFAULT_VALID_RANGE_IN_KM);
+
+        assertEquals("Ian Kehoe", customers.get(0).getName());
+        assertEquals(11, customers.get(4).getUserId());
+
+    }
+
+    @Test
+    public void processCustomerDataError(){
+
+        List<Customer> customers = CustomerUtils.processCustomerData("Some URL that won't work",
+                Constants.DEFAULT_VALID_RANGE_IN_KM);
+
+        assertTrue(customers.isEmpty());
 
     }
 }

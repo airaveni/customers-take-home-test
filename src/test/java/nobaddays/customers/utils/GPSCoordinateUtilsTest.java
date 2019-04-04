@@ -3,6 +3,8 @@ package nobaddays.customers.utils;
 import nobaddays.customers.pojo.GPSCoordinate;
 import org.junit.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class GPSCoordinateUtilsTest {
 
     @Test
@@ -11,7 +13,8 @@ public class GPSCoordinateUtilsTest {
         GPSCoordinate location2 = new GPSCoordinate(-500d, 100d);
         Double expectedDistance = 4395.644069312897d;
 
-        assert (expectedDistance.compareTo(GPSCoordinateUtils.getDistanceInKm(location1,location2)) == 0);
+        assertEquals(0, expectedDistance.compareTo(GPSCoordinateUtils.getDistanceInKm(location1,location2)));
+
     }
 
 }
