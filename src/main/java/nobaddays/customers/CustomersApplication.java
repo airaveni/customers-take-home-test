@@ -8,12 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static java.lang.System.lineSeparator;
 
 @SpringBootApplication
 public class CustomersApplication {
@@ -28,12 +27,12 @@ public class CustomersApplication {
         final String fileUrl = args.length > 1 ? args[1] : Constants.DEFAULT_JSON_TXT_FILE_INPUT_URL;
 
         processCustomerData(fileUrl, validRange);
+
 	}
 
-	private static void processCustomerData(String fileUrl, double validRange){
+	static List<Customer> processCustomerData(String fileUrl, double validRange){
         LOGGER.log(Level.INFO, () -> "Getting List of customers within " +
                 validRange + "km Range of (" + Constants.OFFICE_GPS_COORDINATE + ")");
-
         try {
 
             LOGGER.log(Level.INFO, () -> "Reading Customer data from " + fileUrl);
@@ -48,13 +47,17 @@ public class CustomersApplication {
             customersInRange.sort(Comparator.comparingInt(Customer::getUserId));
             StringBuilder sb = new StringBuilder();
             for (Customer customer : customersInRange) {
-                sb.append(customer).append(lineSeparator());
+                sb.append(customer).append(System.lineSeparator());
             }
 
-            LOGGER.log(Level.INFO, () -> "List of customers in range: " + lineSeparator() + lineSeparator() + sb);
+            LOGGER.log(Level.INFO, () -> "List of customers in range: " + System.lineSeparator() + System.lineSeparator() + sb);
+            return customersInRange;
+
         } catch (Exception e){
             LOGGER.log(Level.SEVERE, "An Error has occurred, Exiting Application: " + e.toString());
+            return new ArrayList<>();
         }
+
     }
 
 }
