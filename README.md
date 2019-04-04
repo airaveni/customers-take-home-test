@@ -1,5 +1,7 @@
 # Customers - Take Home Test
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NoBadDays_customers-take-home-test&metric=alert_status)](https://sonarcloud.io/dashboard?id=NoBadDays_customers-take-home-test)
+
 This project is the answer to a test to demonstrate how to structure components in a small program.
 
 The test:

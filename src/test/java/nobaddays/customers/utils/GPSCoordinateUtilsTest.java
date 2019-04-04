@@ -13,7 +13,7 @@ public class GPSCoordinateUtilsTest {
         GPSCoordinate location2 = new GPSCoordinate(-500d, 100d);
         Double expectedDistance = 4395.644069312897d;
 
-        assertEquals(expectedDistance.compareTo(GPSCoordinateUtils.getDistanceInKm(location1,location2)), 0);
+        assertEquals(0, expectedDistance.compareTo(GPSCoordinateUtils.getDistanceInKm(location1,location2)));
 
     }
 

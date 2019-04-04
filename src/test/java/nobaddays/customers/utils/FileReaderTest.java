@@ -43,11 +43,11 @@ public class FileReaderTest {
         
         List<Customer> customers = FileReader.getCustomersListFromJsonList(customerJsonObjects);
 
-        assertEquals(customers.size(),  3);
-        assertEquals(customers.get(0).getUserId(), 7);
-        assertEquals(customers.get(1).getName(),"Eoin Gallagher");
-        assertEquals(Double.compare(53.521111d, customers.get(2).getLocation().getLatitude()),0d );
-        assertEquals(Double.compare(-9.831111d, customers.get(2).getLocation().getLongitude()), 0d );
+        assertEquals(3, customers.size());
+        assertEquals(7, customers.get(0).getUserId());
+        assertEquals("Eoin Gallagher", customers.get(1).getName());
+        assertEquals(0d, Double.compare(53.521111d, customers.get(2).getLocation().getLatitude()) );
+        assertEquals(0d, Double.compare(-9.831111d, customers.get(2).getLocation().getLongitude()) );
 
     }
 }

@@ -1,7 +1,6 @@
 package nobaddays.customers.utils;
 
 import nobaddays.customers.Constants;
-import nobaddays.customers.CustomersApplication;
 import nobaddays.customers.pojo.Customer;
 import nobaddays.customers.pojo.GPSCoordinate;
 

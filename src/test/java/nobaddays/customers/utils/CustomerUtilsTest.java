@@ -40,8 +40,8 @@ public class CustomerUtilsTest {
         List<Customer> customers = CustomerUtils.processCustomerData(Constants.DEFAULT_JSON_TXT_FILE_INPUT_URL,
                 Constants.DEFAULT_VALID_RANGE_IN_KM);
 
-        assertEquals(customers.get(0).getName(), "Ian Kehoe");
-        assertEquals(customers.get(4).getUserId(), 11);
+        assertEquals("Ian Kehoe", customers.get(0).getName());
+        assertEquals(11, customers.get(4).getUserId());
 
     }
 
