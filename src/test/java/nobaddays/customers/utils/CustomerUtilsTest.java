@@ -28,9 +28,9 @@ public class CustomerUtilsTest {
 
         List<Customer> customersInRange = CustomerUtils.getCustomersWithinDistance(customersToFilter, filterLocation, kilometerRange);
 
-        assertEquals(customersInRange.size(), 2);
-        assertEquals(customersInRange.get(0).getUserId(), 2);
-        assertEquals(customersInRange.get(1).getUserId(), 4);
+        assertEquals(2, customersInRange.size());
+        assertEquals(2, customersInRange.get(0).getUserId());
+        assertEquals(4, customersInRange.get(1).getUserId());
 
     }
 
