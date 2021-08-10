@@ -14,6 +14,8 @@ public class CustomersApplication {
         // if args[1] is set, use it as the json.txt url.
         final String fileUrl = args.length > 1 ? args[1] : Constants.DEFAULT_JSON_TXT_FILE_INPUT_URL;
 
+
+
         CustomerUtils.processCustomerData(fileUrl, validRange);
 
 	}
